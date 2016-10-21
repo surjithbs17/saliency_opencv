@@ -3,7 +3,7 @@ Reusing the OpenCV's Saliency algorithms for research purpose
 
 Directions to install OpenCV 3.1.0 with OpenCV_contrib modules
 
-- Do this step by step
+Do this step by step
 1. sudo apt-get install build-essential
 2. sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 3. sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
@@ -35,3 +35,11 @@ Make the file using CMAKE
 5. Go to the build directory using "cd saliency_opencv/build"
 6. type "make all"
 7. Execute the code by typing "./saliencyFineGrained BinWangApr2014 airplane.mp4 10"
+
+This should show two outputs(Video Frame in Grayscale and saliency map.
+
+Reference: 
+
+1. http://embedonix.com/articles/image-processing/installing-opencv-3-1-0-on-ubuntu/
+
+2. http://www.samontab.com/web/saliency/
