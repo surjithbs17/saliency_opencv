@@ -1,6 +1,31 @@
 # saliency_opencv
 Reusing the OpenCV's Saliency algorithms for research purpose
 
+Directions to install OpenCV 3.1.0 with OpenCV_contrib modules
+
+- Do this step by step
+1. sudo apt-get install build-essential
+2. sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+3. sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+4. git clone https://github.com/Itseez/opencv.git
+5. git clone https://github.com/Itseez/opencv_contrib.git
+6. cd opencv
+7. mkdir release
+8. cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=source_directory/modules source_directory/opencv/
+9. make -j6
+10. sudo make install
+
+Check the installation by typing the following command
+
+pkg-config --modversion opencv
+
+This should show the version of your openCV. Hopefully 3.1.0.
+
+Lets try out the Saliency Example now. Clone this directory 
+
+1. git clone https://github.com/surjithbs17/saliency_opencv.git
+2. git checkout test
+
 Make the file using CMAKE
 
 1. type 'cmake-gui'
