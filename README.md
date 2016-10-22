@@ -11,7 +11,7 @@ Directions to install OpenCV 3.1.0 with OpenCV_contrib modules
 5. git clone https://github.com/Itseez/opencv_contrib.git
 6. cd opencv
 7. mkdir release
-8. cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=source_directory/modules source_directory/opencv/
+8. cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=source_directory/opencv_contrib/modules source_directory/opencv/
 9. make -j6
 10. sudo make install
 
