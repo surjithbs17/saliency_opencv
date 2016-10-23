@@ -43,3 +43,7 @@ Reference:
 1. http://embedonix.com/articles/image-processing/installing-opencv-3-1-0-on-ubuntu/
 
 2. http://www.samontab.com/web/saliency/
+
+3. http://docs.opencv.org/3.0-beta/modules/saliency/doc/saliency.html
+
+4. http://docs.opencv.org/3.1.0/d9/dcd/classcv_1_1saliency_1_1Saliency.html
