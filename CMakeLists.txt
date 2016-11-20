@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
-PROJECT(saliencyFineGrained)
-set(exe_name saliencyFineGrained)
+PROJECT(saliency)
+set(exe_name saliency)
 
 FIND_PACKAGE(OpenCV REQUIRED)
 
