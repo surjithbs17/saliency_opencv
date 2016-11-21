@@ -34,7 +34,9 @@ Make the file using CMAKE
 7. Execute the code by typing "./saliency airplane.mp4 MOTION threshold_value"
 
 Example commands:
+
 1. ./saliency DRONE-NET_TEST-10-29-16.mp4 STATIC 200
+
 2. ./saliency DRONE-NET_TEST-10-29-16.mp4 MOTION 200
 
 This should show four outputs(Original Video frame, SaliencyMap(Spectral Residual and Motion saliency), binarymap(extracted from saliency map),thresholded binary map(Thresholded according to input arguments on SaliencyMap) and background subtracted(MOG).
