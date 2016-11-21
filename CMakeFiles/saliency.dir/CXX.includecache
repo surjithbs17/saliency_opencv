@@ -13,6 +13,8 @@ opencv2/saliency.hpp
 -
 opencv2/highgui.hpp
 -
+opencv2/video/background_segm.hpp
+-
 iostream
 -
 
