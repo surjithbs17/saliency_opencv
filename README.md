@@ -24,16 +24,20 @@ This should show the version of your openCV. Hopefully 3.1.0.
 Lets try out the Saliency Example now. Clone this directory 
 
 1. git clone https://github.com/surjithbs17/saliency_opencv.git
-2. git checkout test
+2. git checkout master
 
 Make the file using CMAKE
 
 1. cd saliency_opencv
 2. Run "cmake ."
 4. Run "make"
-7. Execute the code by typing "./saliency airplane.mp4 threshold_value"
+7. Execute the code by typing "./saliency airplane.mp4 MOTION threshold_value"
 
-This should show four outputs(Original Video frame, SaliencyMap(Spectral Residual), binarymap(extracted from saliency map),thresholded binary map(Thresholded according to input arguments on SaliencyMap).
+Example commands:
+1. ./saliency DRONE-NET_TEST-10-29-16.mp4 STATIC 200
+2. ./saliency DRONE-NET_TEST-10-29-16.mp4 MOTION 200
+
+This should show four outputs(Original Video frame, SaliencyMap(Spectral Residual and Motion saliency), binarymap(extracted from saliency map),thresholded binary map(Thresholded according to input arguments on SaliencyMap) and background subtracted(MOG).
 
 Reference: 
 
