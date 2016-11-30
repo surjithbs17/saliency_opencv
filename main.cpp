@@ -275,6 +275,7 @@ int main( int argc, char** argv )
   else if(algorithm.find( "MOTION" ) == 0)
   {
     binwang(input_threshold);
+    
   }
 
   
