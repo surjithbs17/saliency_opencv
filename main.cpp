@@ -8,6 +8,7 @@
 #include <opencv2/videoio/videoio.hpp>
 //#include <opencv2/highgui/highgui.hpp>
 #include <opencv2/opencv.hpp>
+#include <unistd.h>
 using namespace std;
 using namespace cv;
 using namespace saliency;
@@ -40,6 +41,7 @@ VideoWriter saliency_thresh_video;
 
 Mat roi;
 Mat merged_frame;
+
 
 
 int binwang(int input_threshold)
@@ -78,18 +80,19 @@ int binwang(int input_threshold)
       
         count++;
         frame.copyTo( image );
-        
+        //imshow("image",image);
         cvtColor( image, image, COLOR_BGR2GRAY );
 
         Mat saliencyMap;
-        if( saliencyAlgorithm->computeSaliency( image, saliencyMap ) )
+        pMOG2->apply(image, fgMaskMOG2);
+        if( saliencyAlgorithm->computeSaliency( fgMaskMOG2, saliencyMap ) )
         {
           std::cout << "current frame motion saliency done" << std::endl;
         }
 
         //imshow( "image", image );
         //imshow( "saliencyMap", saliencyMap);
-        pMOG2->apply(image, fgMaskMOG2);
+        //pMOG2->apply(image, fgMaskMOG2);
 
         saliencyMap.convertTo(gray_sal, -1, 255,0);
           
@@ -102,19 +105,32 @@ int binwang(int input_threshold)
         filename2 = (char *)malloc(100*sizeof(char));
         memset(filename1,'\0',sizeof(filename1));
         memset(filename2,'\0',sizeof(filename2));
-        sprintf(filename1,"/home/surjith/cv_research/saliency_opencv/output_video/sal_thresh_motion_%d.jpg",count);
-        sprintf(filename2,"/home/surjith/cv_research/saliency_opencv/output_video/sal_mog_motion_%d.jpg",count);
-        //cout << filename <<endl;
+
+
+        char* cwd;
+        cwd = (char *)malloc(1000*sizeof(char));
+        memset(cwd,'\0',sizeof(cwd));
+        getcwd(cwd, 1000);
+        //String cwd_s = get_working_path();
+        //cout << "cwd" << cwd << cwd_s << endl;
+        sprintf(filename1,"%s/output_frames/salientFrame_%06d.jpg",cwd,count);
+        sprintf(filename2,"%s/output_frames/backgroundEliminated_%06d.jpg",cwd,count);
+        //cout << filename1 <<endl;
         imwrite(filename1,saliencyMap);
         imwrite(filename2,fgMaskMOG2);
 
-        //imshow("Threshold Value",threshold_mat);
-        //imshow("MOG",fgMaskMOG2);
+        imshow("Saliency Output",saliencyMap);
+        imshow("Background Eliminated",fgMaskMOG2);
+        imshow("original",image);
         //saliency_thresh_video << gray_sal;
         //saliency_video << saliencyMap;
         
         cap >> frame;
- 
+        
+        char c = (char) waitKey( 2 );
+      if( c == 'q' )
+        break;
+      
 
       
 
@@ -133,6 +149,7 @@ int saliency_spec(int input_threshold)
 
       Ptr<Saliency> saliencyAlgorithm = Saliency::create( "SPECTRAL_RESIDUAL");
 
+      
       if( saliencyAlgorithm == NULL )
       {
         cout << "***Error in the instantiation of the saliency algorithm...***\n";
@@ -183,19 +200,22 @@ int saliency_spec(int input_threshold)
           filename2 = (char *)malloc(100*sizeof(char));
           memset(filename1,'\0',sizeof(filename1));
           memset(filename2,'\0',sizeof(filename2));
-          sprintf(filename1,"/home/surjith/cv_research/saliency_opencv/output_video/sal_thresh_static_%d.jpg",count);
-          sprintf(filename2,"/home/surjith/cv_research/saliency_opencv/output_video/sal_mog_static_%d.jpg",count);
+
+          char* cwd;
+          cwd = (char *)malloc(1000*sizeof(char));
+          memset(cwd,'\0',sizeof(cwd));
+          getcwd(cwd, 1000);
+
+
+          sprintf(filename1,"%s/output_static_frames/sal_thresh_static_%d.jpg",cwd,count);
+          sprintf(filename2,"%s/output_static_frames/sal_mog_static_%d.jpg",cwd,count);
           //cout << filename <<endl;
           imwrite(filename1,threshold_mat);
           imwrite(filename2,fgMaskMOG2);
-
-
-            
             
 
 
             //imshow("Merged Image",merged_frame);
-
 
 
 
@@ -204,8 +224,8 @@ int saliency_spec(int input_threshold)
 
           imwrite("merged_frame.jpg",merged_frame);
           char c = (char) waitKey( 2 );
-      if( c == 'q' )
-        break;
+          if( c == 'q' )
+          break;
 
           
         }
