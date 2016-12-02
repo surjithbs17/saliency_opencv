@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/surjith/cv_research/saliency_opencv/. -isystem /usr/local/include -isystem /usr/local/include/opencv 
+CXX_INCLUDES = -I/home/surjith/cv_research/working_saliency/saliency_opencv/. -isystem /usr/local/include -isystem /usr/local/include/opencv 
 

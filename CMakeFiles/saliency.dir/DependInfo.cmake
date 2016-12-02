@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/surjith/cv_research/saliency_opencv/main.cpp" "/home/surjith/cv_research/saliency_opencv/CMakeFiles/saliency.dir/main.cpp.o"
+  "/home/surjith/cv_research/working_saliency/saliency_opencv/main.cpp" "/home/surjith/cv_research/working_saliency/saliency_opencv/CMakeFiles/saliency.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

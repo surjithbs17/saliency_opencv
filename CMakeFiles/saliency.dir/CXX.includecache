@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/surjith/cv_research/saliency_opencv/main.cpp
+/home/surjith/cv_research/working_saliency/saliency_opencv/main.cpp
 opencv2/core/utility.hpp
 -
 opencv2/saliency.hpp
@@ -16,6 +16,14 @@ opencv2/highgui.hpp
 opencv2/video/background_segm.hpp
 -
 iostream
+-
+opencv2/imgcodecs/imgcodecs.hpp
+-
+opencv2/videoio/videoio.hpp
+-
+opencv2/opencv.hpp
+-
+unistd.h
 -
 
 /usr/local/include/opencv/cxcore.h
@@ -752,6 +760,10 @@ opencv2/core.hpp
 opencv2/opencv.hpp
 -
 
+/usr/local/include/opencv2/imgcodecs/imgcodecs.hpp
+opencv2/imgcodecs.hpp
+/usr/local/include/opencv2/imgcodecs/opencv2/imgcodecs.hpp
+
 /usr/local/include/opencv2/imgcodecs/imgcodecs_c.h
 opencv2/core/core_c.h
 /usr/local/include/opencv2/imgcodecs/opencv2/core/core_c.h
@@ -1103,6 +1115,10 @@ opencv2/imgproc/types_c.h
 /usr/local/include/opencv2/videoio.hpp
 opencv2/core.hpp
 /usr/local/include/opencv2/opencv2/core.hpp
+
+/usr/local/include/opencv2/videoio/videoio.hpp
+opencv2/videoio.hpp
+/usr/local/include/opencv2/videoio/opencv2/videoio.hpp
 
 /usr/local/include/opencv2/videoio/videoio_c.h
 opencv2/core/core_c.h
